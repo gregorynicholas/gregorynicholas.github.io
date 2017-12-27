@@ -18,12 +18,11 @@ before_install:
 - echo "jekyll version: $(bundle exec jekyll --version)"
 - echo "github-pages version: $(bundle exec github-pages versions)"
 
-bundler_args: --gemfile=Gemfile --retry 3
-#--without test
+bundler_args: --gemfile=Gemfile --retry 3 --without test
 
 script: "bundle exec jekyll build"
 
 before_script:
   - git submodule init
   - git submodule update
-  
+  #- gem update github-pages
