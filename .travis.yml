@@ -1,0 +1,27 @@
+language: ruby
+sudo: false
+rvm:
+- 2.3.1
+
+cache:
+  bundler: true
+  cocoapods: true
+  directories:
+  - $HOME/.cache/pip
+  - node_modules
+  - $HOME/.nvm
+  - $HOME/.rvm
+
+before_install:
+- gem update --system
+- gem --version
+
+bundler_args: --gemfile=Gemfile --without test --retry 3
+
+
+script: "bundle exec jekyll build"
+
+before_script:
+  - git submodule init
+  - git submodule update
+  
