@@ -14,10 +14,12 @@ cache:
 
 before_install:
 - gem update --system
-- gem --version
+- echo "gem version: $(gem --version)"
+- echo "jekyll version: $(bundle exec jekyll --version)"
+- echo "github-pages version: $(bundle exec github-pages versions)"
 
-bundler_args: --gemfile=Gemfile --without test --retry 3
-
+bundler_args: --gemfile=Gemfile --retry 3
+#--without test
 
 script: "bundle exec jekyll build"
 
