@@ -1,0 +1,5 @@
+
+plugins:
+  - jekyll-mentions
+
+theme: jekyll-theme-cayman
